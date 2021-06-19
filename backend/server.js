@@ -7,11 +7,15 @@ dotenv.config();
 connectDB();
 import productRoutes from "./routes/productRoutes.js";
 
+import userRoutes from "./routes/userRoutes.js";
+
 app.get("/", (req, res) => {
   res.send("Api running");
 });
-
+app.use(express.json()); 
 app.use("/api/products", productRoutes);
+app.use("/api/users",userRoutes);
+
 app.use(notFound);
 app.use(errorHandler);
 const PORT = process.env.PORT || 5000;
