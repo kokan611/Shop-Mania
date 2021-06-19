@@ -62,6 +62,11 @@ const productSchema = mongoose.Schema(
       type: String,
       required: true,
     },
+    countInStock: {
+      type:Number,
+      required: true,
+      default:0,
+    },
   },
   { timestamps: true }
 );
