@@ -9,7 +9,7 @@ const PaymentScreen = ({ history }) => {
   const cart = useSelector((state) => state.cart);
   const { shippingAddress } = cart;
   if (!shippingAddress) history.push("/shipping");
-  const [paymentMethod, setPaymentMethod] = useState("PayPal");
+  const [paymentMethod, setPaymentMethod] = useState("");
   const dispatch = useDispatch();
   const submitHandler = (e) => {
     e.preventDefault();
@@ -32,19 +32,17 @@ const PaymentScreen = ({ history }) => {
               id="PayPal"
               name="paymentMethod"
               value="PayPal"
-              checked
               onChange={(e) => setPaymentMethod(e.target.value)}
             ></Form.Check>
-         
-            {/* <Form.Check
+
+            <Form.Check
               type="radio"
-              label="Stripe"
-              id="Stripe"
+              label="Razorpay"
+              id="Razorpay"
               name="paymentMethod"
-              value="Stripe"
-              checked
+              value="Razorpay" 
               onChange={(e) => setPaymentMethod(e.target.value)}
-            ></Form.Check> */}
+            ></Form.Check>
           </Col>
 
           <Button type="submit" variant="primary">
