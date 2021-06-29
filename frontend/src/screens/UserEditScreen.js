@@ -6,6 +6,7 @@ import FormContainer from "../components/FormContainer.js";
 import { getUserDetails,updateUser } from "../actions/userActions.js";
 import Loader from "../components/Loader.js";
 import Message from "../components/Message.js";
+import Meta from "../components/Meta.js";
 import {USER_UPDATE_RESET} from "../constants/userConstants.js"
 const UserEditScreen = ({ match, history }) => {
   const userId = match.params.id;
@@ -44,13 +45,14 @@ const UserEditScreen = ({ match, history }) => {
   };
   return (
     <>
+      <Meta title="Edit User" />
       <Link to="/admin/userlist" className="btn btn-light my-3">
         Go Back
       </Link>
       <FormContainer>
         <h1>Edit User</h1>
-        {loadingUpdate&&<Loader />}
-        {errorUpdate&&<Message variant="danger">{errorUpdate}</Message>}
+        {loadingUpdate && <Loader />}
+        {errorUpdate && <Message variant="danger">{errorUpdate}</Message>}
         {loading ? (
           <Loader />
         ) : error ? (

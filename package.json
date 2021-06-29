@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "start": "nodemon backend/server.js",
-    "server": "nodemon backend/server.js --ignore './frontend/'",
+    "server": "nodemon backend/server.js --ignore client",
     "client": "npm start --prefix frontend",
     "dev": "concurrently  \"npm run server\" \"npm run client \"",
     "data:import": "node backend/seeder",
@@ -23,6 +23,7 @@
     "express-async-handler": "^1.1.4",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.12.14",
+    "morgan": "^1.10.0",
     "multer": "^1.4.2",
     "razorpay": "^2.0.6",
     "shortid": "^2.2.16"
@@ -30,6 +31,5 @@
   "devDependencies": {
     "concurrently": "^6.2.0",
     "nodemon": "^2.0.7"
-  },
-  "proxy": "http://127.0.0.1:5000"
+  }
 }

@@ -10,6 +10,7 @@ import {
 } from "../actions/productActions.js";
 import Loader from "../components/Loader.js";
 import Message from "../components/Message.js";
+import Meta from "../components/Meta.js";
 import { PRODUCT_UPDATE_RESET } from "../constants/productConstant.js";
 
 const ProductEditScreen = ({ match, history }) => {
@@ -89,6 +90,7 @@ const ProductEditScreen = ({ match, history }) => {
   };
   return (
     <>
+      <Meta title="Edit Product" />
       <Link to="/admin/productlist" className="btn btn-light my-3">
         Go Back
       </Link>
@@ -130,12 +132,7 @@ const ProductEditScreen = ({ match, history }) => {
                 value={image}
                 onChange={(e) => setImage(e.target.checked)}
               ></Form.Control>
-              <Form.File
-                id="image-file"
-               
-                custom
-                onChange={uploadFileHandler}
-              >
+              <Form.File id="image-file" custom onChange={uploadFileHandler}>
                 {uploading && <Loader />}
               </Form.File>
             </Form.Group>

@@ -13,7 +13,6 @@ import {
   USER_UPDATE_PROFILE_REQUEST,
   USER_UPDATE_PROFILE_SUCESS,
   USER_UPDATE_PROFILE_FAIL,
-  USER_UPDATE_PROFILE_RESET,
   USER_LIST_REQUEST,
   USER_LIST_SUCESS,
   USER_LIST_FAIL,
@@ -114,6 +113,11 @@ export const updateUserProfile = (user) => async (dispatch, getState) => {
       type: USER_UPDATE_PROFILE_SUCESS,
       payload: data,
     });
+    dispatch({
+      type: USER_LOGIN_SUCESS,
+      payload: data,
+    });
+    localStorage.setItem('userInfo',JSON.stringify(data));
   } catch (error) {
     const message =
       error.response && error.response.data.message
