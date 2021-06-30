@@ -4,6 +4,7 @@
   "description": " Shop Mania WebSite",
   "main": "server.js",
   "type": "module",
+  "engines": { "node": ">=12.19.0" },
   "scripts": {
     "start": "nodemon backend/server.js",
     "server": "nodemon backend/server.js --ignore client",
